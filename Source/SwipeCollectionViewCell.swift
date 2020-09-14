@@ -209,7 +209,10 @@ open class SwipeCollectionViewCell: UICollectionViewCell {
 
 extension SwipeCollectionViewCell: SwipeControllerDelegate {
     func swipeController(_ controller: SwipeController, canBeginEditingSwipeableFor orientation: SwipeActionsOrientation) -> Bool {
-        return true
+        guard let collectionView = collectionView, let indexPath = collectionView.indexPath(for: self),
+        let delegate = delegate else { return false }
+        
+        return !(delegate.collectionView(collectionView, editActionsForItemAt: indexPath, for: orientation)?.isEmpty ?? true)
     }
     
     func swipeController(_ controller: SwipeController, editActionsForSwipeableFor orientation: SwipeActionsOrientation) -> [SwipeAction]? {
