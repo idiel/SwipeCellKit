@@ -369,7 +369,7 @@ extension SwipeController: UIGestureRecognizerDelegate {
     }
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        !(swipeable?.actionsView?.expanded ?? false)
+        (swipeable?.state ?? .center) == .center
     }
 }
 
