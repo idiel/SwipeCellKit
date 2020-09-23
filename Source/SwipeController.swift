@@ -68,12 +68,11 @@ class SwipeController: NSObject {
         
         let velocity = gesture.velocity(in: target)
         
-        if delegate?.swipeController(self, canBeginEditingSwipeableFor: velocity.x > 0 ? .left : .right) == false {
-            return
-        }
+        let canBegin = delegate?.swipeController(self, canBeginEditingSwipeableFor: velocity.x > 0 ? .left : .right) ?? true
         
         switch gesture.state {
         case .began:
+            guard canBegin else { return }
             if let swipeable = scrollView?.swipeables.first(where: { $0.state == .dragging }) as? UIView, self.swipeable != nil, swipeable != self.swipeable! {
                 return
             }
