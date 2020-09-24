@@ -31,7 +31,7 @@ open class SwipeCollectionViewCell: UICollectionViewCell {
         return swipeController.panGestureRecognizer;
     }
     
-    var swipeController: SwipeController!
+    open var swipeController: SwipeController!
     var isPreviouslySelected = false
     
     weak var collectionView: UICollectionView?
@@ -79,7 +79,7 @@ open class SwipeCollectionViewCell: UICollectionViewCell {
         collectionView?.panGestureRecognizer.removeTarget(self, action: nil)
     }
     
-    func configure() {
+    open func configure() {
         contentView.clipsToBounds = false
         
         if contentView.translatesAutoresizingMaskIntoConstraints == true {
