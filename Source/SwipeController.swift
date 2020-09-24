@@ -54,7 +54,7 @@ open class SwipeController: NSObject {
         return gesture
     }()
     
-    init(swipeable: UIView & Swipeable, actionsContainerView: UIView) {
+    public init(swipeable: UIView & Swipeable, actionsContainerView: UIView) {
         self.swipeable = swipeable
         self.actionsContainerView = actionsContainerView
         
