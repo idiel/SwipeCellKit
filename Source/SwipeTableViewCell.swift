@@ -25,8 +25,8 @@ open class SwipeTableViewCell: UITableViewCell {
     }
     public var indexPath: IndexPath? {
         return tableView?.indexPath(for: self)
-        public  }
-    var panGestureRecognizer: UIGestureRecognizer
+    }
+    public var panGestureRecognizer: UIGestureRecognizer
     {
         return swipeController.panGestureRecognizer;
     }

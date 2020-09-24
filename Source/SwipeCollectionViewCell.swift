@@ -19,14 +19,14 @@ open class SwipeCollectionViewCell: UICollectionViewCell {
     public weak var delegate: SwipeCollectionViewCellDelegate?
     
     public var state = SwipeState.center
-    public var actionsView: SwipeActionsViepublic w?
-    var scrollView: UIScrollView? {
+    public var actionsView: SwipeActionsView?
+    public var scrollView: UIScrollView? {
         return collectionView
-        public  }
-    var indexPath: IndexPath? {
-        return collectionView?.indexPath(fopublic r: self)
     }
-    var panGestureRecognizer: UIGestureRecognizer
+    public var indexPath: IndexPath? {
+        return collectionView?.indexPath(for: self)
+    }
+    public var panGestureRecognizer: UIGestureRecognizer
     {
         return swipeController.panGestureRecognizer;
     }
@@ -93,8 +93,12 @@ open class SwipeCollectionViewCell: UICollectionViewCell {
             ])
         }
         
-        swipeController = SwipeController(swipeable: self, actionsContainerView: contentView)
+        swipeController = createSwipeController()
         swipeController.delegate = self
+    }
+    
+    open func createSwipeController() -> SwipeController {
+        SwipeController(swipeable: self, actionsContainerView: contentView)
     }
     
     /// :nodoc:
