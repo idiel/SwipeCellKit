@@ -368,7 +368,7 @@ extension SwipeController: UIGestureRecognizerDelegate {
     }
     
     public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        false
+        true
     }
 }
 
